@@ -3,8 +3,78 @@
         <title>
             <%= title %>
         </title>
+        <link rel="stylesheet" type="text/css" href="../css/contact_list.css">
+        <style>
+            body{
+                margin: 0px;
+                padding: 0px;
+            }
+            .navbar_header{
+                height: 70px;
+                width: 100%;
+                background-color: brown;
+                opacity: 1;
+                transition: 1s;
+            }
+            .navbar_header h1{
+                color: white;
+                padding: 18px;
+                text-align: center;
+            }
+            .contact_list ol li{
+                font-size: 20px;
+            }
+            .navbar_header:hover{
+                opacity: 0.6;
+            }
+            form label, input{
+                margin: 10px;
+            }
+            label{
+                font-size: 20px;
+                padding: 20px;
+            }
+            button{
+                background-color: brown;
+                color: white;
+                font-size: 15px;
+                margin-left: 85px;
+                border: none;
+            }
+            
+            input{
+                height:20px ;
+                width: 150px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Rendered from EJS View!</h1>
+        <header class="navbar_header">
+            <h1>Your Contact List</h1>
+        </header>
+        <main>
+            <div class="contact_list">
+                <ol>
+                    <% for(let i of contact_list){ %>
+                        <li>
+                            <p><%= i.name %></p>
+                            <p><%= i.phone %></p>
+                        </li>
+                    <%}%>
+                </ol>
+            </div> 
+        </main>
+        <hr>
+        <footer>
+            <form action="/create_contact" method="POST">
+                <label for="name">Enter Name here : </label>
+                <input type="text" name="name" id="name" required><br>
+
+                <label for="phone">Enter Phone here : </label>
+                <input type="number" name="phone" id="phone" required><br>
+
+                <button type="submit">Add Contact</button>
+            </form>
+        </footer>
     </body>
 </html>
