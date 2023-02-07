@@ -12,9 +12,28 @@ app.set('view engine', 'ejs');
 // to access the ejs file or file where you have embaded that code
 app.set('views',path.join(__dirname,'views'));
 
+var contacList = [
+    {
+        name : "Arpan",
+        phone : "1111"
+    },
+    {
+        name : "Rahul",
+        phone : "2222"
+    },
+    {
+        name : "Sagar",
+        phone : "3333"
+    }
+]
+
+
 // routes the HTTP GET Requests to the path which is being specified with the specified callback functions.
 app.get('/',function(req,res){
-    return res.render('home',{ title : 'My Contact List'});
+    return res.render('home',
+    { title : 'My Contact List',
+    contact_list : contacList
+    });
 });
 
 app.get('/newhome',function(req,res){
