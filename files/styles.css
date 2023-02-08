@@ -1,0 +1,63 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.navbar_header{
+    height: 70px;
+    width: 100%;
+    background-color: brown;
+    opacity: 1;
+    transition: 1s;
+}
+.navbar_header h1{
+    color: white;
+    padding: 18px;
+    text-align: center;
+}
+.contact_list ol li{
+    font-size: 20px;
+}
+.navbar_header:hover{
+    opacity: 0.6;
+}
+form label, input{
+    margin: 10px;
+}
+label{
+    font-size: 20px;
+}
+button{
+    background-color: brown;
+    color: white;
+    font-size: 15px;
+    border: none;
+    height: 35px;
+    width: 150px;
+}
+input{
+    height:27px ;
+    width: 150px;
+    font-size: 20px;
+    font-weight: lighter;
+}
+.addNewContact h2{
+    font-size: 30px;
+    text-align: center;
+}
+.addNewContact label{
+    margin-left: 40%;
+}
+.addNewContact button{
+    margin-left: 45%;
+}
+.delete_contact{
+    height: 35px;
+    width: 150px;
+    font-size: 17px;
+}
+a{
+    color: white;
+    text-decoration: none;
+    background-color: brown;
+    padding: 7px;
+}

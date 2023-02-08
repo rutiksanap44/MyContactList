@@ -16,7 +16,16 @@ app.set('view engine', 'ejs');
 // to access the ejs file or file where you have embaded that code
 app.set('views', path.join(__dirname, 'views'));
 
-// app.post()
+app.use(express.urlencoded());
+
+// to add js and css files as a static files
+app.use(express.static(__dirname +'/files'));
+
+// creating middlewar
+app.use(function(req,res,next){
+    console.log("Middleware 1 called");
+    next();
+})
 
 var contactList = [
     {
@@ -52,10 +61,22 @@ app.get('/list', function (req, res) {
 })
 
 app.post('/create_contact', function (req, res) {
-    // return res.redirect('/list');
     contactList.push(req.body);
     return res.redirect('/');
-})
+});
+
+// to delete the contact
+app.get('/delete-contact',function(req,res){
+    let phone = req.query.phone;
+
+    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+
+    if(contactIndex != -1){
+        contactList.splice(contactIndex,1);
+    }
+
+    return res.redirect('back');
+});
 
 // to listen and bind the connection on the specified host and port.
 app.listen(port, function (err) {
